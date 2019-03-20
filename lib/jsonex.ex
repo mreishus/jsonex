@@ -19,7 +19,7 @@ defmodule Jsonex do
   def encode(list) when is_list(list) do
     items_str =
       list
-      |> Enum.map(fn x -> encode(x) end)
+      |> Enum.map(&encode/1)
       |> Enum.join(",")
 
     "[" <> items_str <> "]"
